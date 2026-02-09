@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>La cave d'Estinnes - Accords Mets & Vins</title>
+    <title>La cave des Estinnes - Accords Mets & Vins</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -11,7 +11,7 @@
 
     <!-- HEADER GLOBAL -->
     <header class="main-header">
-        <h1 class="brand-title" onclick="showPage('home')">La cave d'Estinnes</h1>
+        <h1 class="brand-title" onclick="showPage('home')">La cave des Estinnes</h1>
         <div class="separator"></div>
     </header>
 
@@ -23,42 +23,45 @@
         </div>
 
         <div class="selection-grid">
+            <!-- SECTION SAVOIR -->
+            <div class="menu-card full-width featured">
+                <span class="card-num">Priorité</span>
+                <h3>Le Carnet d'Oenologie</h3>
+                <p class="card-text">Découvrez les bases fondamentales, les types de vins et les secrets des meilleurs accords avant de tester vos connaissances.</p>
+                <button onclick="showPage('education')" class="btn-gold-large">Ouvrir le carnet</button>
+            </div>
+
             <!-- Jeu 1 : Quiz -->
             <div class="menu-card">
                 <span class="card-num">01. Questionnaire</span>
                 <h3>Le Quiz du Sommelier</h3>
-                <p class="card-text">Testez vos connaissances théoriques sur 10 accords classiques. Disponible en deux langues.</p>
+                <p class="card-text">Testez vos connaissances théoriques sur 10 questions. Apprenez avec les explications détaillées.</p>
                 <div class="button-group">
                     <button onclick="startQuiz('fr')" class="btn-gold">Français</button>
                     <button onclick="startQuiz('en')" class="btn-gold">English</button>
                 </div>
             </div>
 
-            <!-- Jeu 2 : Memory -->
+            <!-- Jeu 2 : L'Intrus -->
             <div class="menu-card">
-                <span class="card-num">02. Concentration</span>
+                <span class="card-num">02. Rapidité</span>
+                <h3>L'Intrus de la Cave</h3>
+                <p class="card-text">Identifiez l'erreur d'accord parmi les propositions. Un défi bilingue pour experts.</p>
+                <div class="button-group">
+                    <button onclick="startOddOneOut('fr')" class="btn-gold">Français</button>
+                    <button onclick="startOddOneOut('en')" class="btn-gold">English</button>
+                </div>
+            </div>
+
+            <!-- Jeu 3 : Memory -->
+            <div class="menu-card">
+                <span class="card-num">03. Concentration</span>
                 <h3>Mémoire des Crus</h3>
-                <p class="card-text">Associez les paires visuelles de mets et de vins. Choisissez votre niveau de difficulté.</p>
+                <p class="card-text">Associez les paires visuelles de mets et de vins selon votre niveau.</p>
                 <div class="button-group">
                     <button onclick="startMemory('easy')" class="btn-gold">Dégustation</button>
                     <button onclick="startMemory('hard')" class="btn-gold">Millésime</button>
                 </div>
-            </div>
-
-            <!-- Jeu 3 : L'Intrus -->
-            <div class="menu-card">
-                <span class="card-num">03. Rapidité</span>
-                <h3>L'Intrus de la Cave</h3>
-                <p class="card-text">Identifiez le vin qui n'a pas sa place dans l'accord proposé. Attention au chrono !</p>
-                <button onclick="startOddOneOut()" class="btn-gold">Lancer le défi</button>
-            </div>
-
-            <!-- Section Savoir -->
-            <div class="menu-card full-width">
-                <span class="card-num">04. Savoir</span>
-                <h3>Le Carnet d'Oenologie</h3>
-                <p class="card-text">Comprendre les caractéristiques et les accords types.</p>
-                <button onclick="showPage('education')" class="btn-gold">Ouvrir le carnet</button>
             </div>
         </div>
     </main>
@@ -67,44 +70,52 @@
     <section id="education-page" class="page">
         <button class="back-arrow" onclick="showPage('home')">← Retour</button>
         <div class="edu-container">
-            <h2 class="edu-title">Les Types de Vins</h2>
+            <h2 class="edu-title">Le Carnet d'Oenologie</h2>
             <div class="edu-grid">
                 <div class="edu-item">
                     <h4>Vins Rouges</h4>
-                    <p>Issus de raisins noirs, ils tirent leur couleur des peaux. Idéal pour les viandes rouges.</p>
+                    <p>Issus de raisins noirs, ils tirent leur couleur et leurs tanins de la peau. Idéal pour les viandes rouges et plats de caractère.</p>
                     <div class="edu-example"><strong>Accord Parfait :</strong> Côte de bœuf & Pauillac (Bordeaux)</div>
                 </div>
                 <div class="edu-item">
                     <h4>Vins Blancs</h4>
-                    <p>Frais et acides, issus de raisins blancs ou noirs pressés sans les peaux.</p>
+                    <p>Frais et acides, issus de raisins blancs ou noirs pressés sans les peaux. Idéal pour les produits de la mer.</p>
                     <div class="edu-example"><strong>Accord Parfait :</strong> Fruits de mer & Muscadet sur lie</div>
                 </div>
                 <div class="edu-item">
                     <h4>Vins Rosés</h4>
-                    <p>Une macération courte pour une robe légère. Fraîcheur et arômes de fruits rouges.</p>
+                    <p>Une macération courte pour une robe légère. Fraîcheur et arômes de fruits rouges, parfaits pour l'été.</p>
                     <div class="edu-example"><strong>Accord Parfait :</strong> Cuisine provençale & Rosé de Provence</div>
                 </div>
                 <div class="edu-item">
                     <h4>Vins Effervescents</h4>
-                    <p>Vins à bulles utilisant souvent la méthode traditionnelle de seconde fermentation.</p>
+                    <p>Vins à bulles (Champagne, Crémant). Leur vivacité nettoie le palais et apporte de la fête.</p>
                     <div class="edu-example"><strong>Accord Parfait :</strong> Apéritif ou Dessert & Champagne Brut</div>
                 </div>
                 <div class="edu-item">
                     <h4>Vins Liquoreux</h4>
-                    <p>Riches en sucres, parfaits pour les contrastes ou les douceurs de fin de repas.</p>
+                    <p>Riches en sucres naturels, parfaits pour les contrastes salés-sucrés ou les fins de repas.</p>
                     <div class="edu-example"><strong>Accord Parfait :</strong> Foie gras ou Bleu & Sauternes</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION QUIZ -->
-    <section id="quiz-page" class="page">
+    <!-- SECTION JEUX (QUIZ & INTRUS) -->
+    <section id="game-view-page" class="page">
         <button class="back-arrow" onclick="showPage('home')">← Retour</button>
-        <div class="game-container">
-            <div id="quiz-progress" class="progress-label">Question 1 / 10</div>
-            <h3 id="quiz-question" class="question-text">Chargement...</h3>
-            <div id="quiz-options" class="options-stack"></div>
+        <div class="game-container" id="question-container">
+            <div id="game-progress" class="progress-label">Question 1</div>
+            <h3 id="game-main-text" class="question-text italic">Chargement...</h3>
+            <div id="game-options" class="options-stack"></div>
+        </div>
+        
+        <div class="game-container hidden" id="feedback-container">
+            <div id="feedback-status" class="feedback-badge">Bonne réponse !</div>
+            <div id="feedback-explanation" class="feedback-box">
+                <p id="explanation-text"></p>
+            </div>
+            <button id="btn-next" class="btn-gold-large">Suivant →</button>
         </div>
     </section>
 
@@ -113,21 +124,10 @@
         <button class="back-arrow" onclick="showPage('home')">← Retour</button>
         <div class="status-bar">
             <span class="status-item">Coups : <span id="moves">0</span></span>
-            <h3 class="status-title">Mémorisation</h3>
+            <h3 class="status-title">Mémoire</h3>
             <span class="status-item">Paires : <span id="matches">0</span></span>
         </div>
         <div id="memory-grid" class="memory-grid"></div>
-    </section>
-
-    <!-- SECTION L'INTRUS -->
-    <section id="odd-page" class="page">
-        <button class="back-arrow" onclick="showPage('home')">← Retour</button>
-        <div class="game-container">
-            <div class="progress-label">Trouvez l'intrus (Mauvais accord)</div>
-            <h3 id="odd-dish" class="question-text italic">Chargement...</h3>
-            <div id="odd-options" class="options-stack"></div>
-            <div id="odd-feedback" class="mt-8 sans text-[10px] uppercase tracking-widest text-red-800"></div>
-        </div>
     </section>
 
     <!-- MODAL DE FIN -->
@@ -135,111 +135,151 @@
         <div class="modal-content">
             <h2 id="finish-title">Félicitations</h2>
             <p id="finish-desc"></p>
-            <button onclick="showPage('home')" class="btn-gold-large">Retour à la cave</button>
+            <button onclick="showPage('home')" class="btn-gold-large">Retour à l'accueil</button>
         </div>
     </div>
 
     <script>
-        // DONNÉES DU QUIZ
+        // --- BASE DE DONNÉES COMPLÈTE DU QUIZ ---
         const quizData = {
             fr: [
-                { q: "Quel vin avec des huîtres ?", a: ["Muscadet", "Saint-Emilion", "Sauternes"], r: 0 },
-                { q: "Accord pour un canard confit ?", a: ["Chablis", "Madiran", "Rosé"], r: 1 },
-                { q: "Vin idéal pour le Roquefort ?", a: ["Sauternes", "Beaujolais", "Cidre"], r: 0 },
-                { q: "Quel flacon pour un turbot ?", a: ["Meursault", "Cahors", "Cornas"], r: 0 },
-                { q: "Vin pour une tarte tatin ?", a: ["Coteaux du Layon", "Bordeaux Rouge", "Champagne Brut"], r: 0 },
-                { q: "Avec un bœuf bourguignon ?", a: ["Pommard", "Pouilly-Fuissé", "Bandol"], r: 0 },
-                { q: "Fromage de chèvre frais ?", a: ["Sancerre", "Gigondas", "Morgon"], r: 0 },
-                { q: "Chocolat noir amer ?", a: ["Banyuls", "Riesling", "Chardonnay"], r: 0 },
-                { q: "Curry de crevettes ?", a: ["Gewurztraminer", "Saint-Estèphe", "Muscadet"], r: 0 },
-                { q: "Gigot d'agneau ?", a: ["Pauillac", "Champagne", "Sancerre Blanc"], r: 0 }
+                { q: "Quel vin avec des huîtres ?", a: ["Muscadet", "Saint-Emilion", "Sauternes"], r: 0, e: "Le Muscadet, iodé et vif, est le compagnon naturel des huîtres." },
+                { q: "Accord pour un canard confit ?", a: ["Chablis", "Madiran", "Rosé"], r: 1, e: "Les tanins du Madiran équilibrent le gras du canard." },
+                { q: "Vin idéal pour le Roquefort ?", a: ["Sauternes", "Beaujolais", "Cidre"], r: 0, e: "Le sucre du Sauternes compense la force du fromage bleu." },
+                { q: "Quel flacon pour un turbot ?", a: ["Meursault", "Cahors", "Cornas"], r: 0, e: "Le Meursault (Chardonnay) apporte du gras pour ce poisson noble." },
+                { q: "Vin pour une tarte tatin ?", a: ["Coteaux du Layon", "Bordeaux Rouge", "Champagne"], r: 0, e: "Le Chenin moelleux souligne le caramel des pommes." },
+                { q: "Avec un bœuf bourguignon ?", a: ["Pommard", "Pouilly-Fuissé", "Bandol"], r: 0, e: "Un Bourgogne rouge est l'accord régional historique." },
+                { q: "Fromage de chèvre frais ?", a: ["Sancerre", "Gigondas", "Morgon"], r: 0, e: "La vivacité du Sauvignon Blanc de Sancerre s'accorde au chèvre." },
+                { q: "Chocolat noir amer ?", a: ["Banyuls", "Riesling", "Chardonnay"], r: 0, e: "Le Banyuls, vin muté, résiste à l'amertume du cacao." },
+                { q: "Curry de crevettes ?", a: ["Gewurztraminer", "Saint-Estèphe", "Muscadet"], r: 0, e: "L'exotisme du Gewurztraminer répond aux épices du curry." },
+                { q: "Gigot d'agneau ?", a: ["Pauillac", "Champagne", "Sancerre Blanc"], r: 0, e: "Le Pauillac offre la structure nécessaire pour la viande d'agneau." }
             ],
             en: [
-                { q: "Which wine with oysters?", a: ["Muscadet", "Red Bordeaux", "Chardonnay"], r: 0 },
-                { q: "Best match for duck confit?", a: ["Pinot Noir", "Cahors", "Sauvignon Blanc"], r: 1 },
-                { q: "Ideal wine for Roquefort?", a: ["Sauternes", "Merlot", "Champagne"], r: 0 },
-                { q: "Pairing for a Dover Sole?", a: ["Meursault", "Syrah", "Malbec"], r: 0 },
-                { q: "Wine for Apple Tarte Tatin?", a: ["Sweet Chenin", "Claret", "Rose"], r: 0 },
-                { q: "Beef Bourguignon match?", a: ["Gevrey-Chambertin", "Vouvray", "Rosé"], r: 0 },
-                { q: "Fresh Goat Cheese?", a: ["Sancerre", "Hermitage", "Fleurie"], r: 0 },
-                { q: "Dark Chocolate pairing?", a: ["Maury", "Chablis", "Soave"], r: 0 },
-                { q: "Shrimp Curry?", a: ["Off-dry Riesling", "Rioja", "Chardonnay"], r: 0 },
-                { q: "Roasted Lamb Leg?", a: ["St-Julien", "Prosecco", "Pinot Grigio"], r: 0 }
+                { q: "Which wine with oysters?", a: ["Muscadet", "Red Bordeaux", "Chardonnay"], r: 0, e: "Muscadet's acidity and saline notes perfectly complement oysters." },
+                { q: "Best match for duck confit?", a: ["Pinot Noir", "Madiran", "Sauvignon"], r: 1, e: "The powerful tannins of Madiran help cut through the richness of duck fat." },
+                { q: "Ideal wine for Roquefort?", a: ["Sauternes", "Merlot", "Champagne"], r: 0, e: "The sweetness of Sauternes creates a sublime contrast with blue cheese." },
+                { q: "Pairing for a Dover Sole?", a: ["Meursault", "Syrah", "Malbec"], r: 0, e: "A rich white like Meursault matches the delicate texture of the sole." },
+                { q: "Wine for Apple Tarte Tatin?", a: ["Sweet Chenin", "Claret", "Rose"], r: 0, e: "Sweet Chenin Blanc highlights the caramelization of the apples." },
+                { q: "Beef Bourguignon match?", a: ["Red Burgundy", "Vouvray", "Rosé"], r: 0, e: "Pinot Noir from Burgundy is the classic regional pairing." },
+                { q: "Fresh Goat Cheese?", a: ["Sancerre", "Hermitage", "Fleurie"], r: 0, e: "Sancerre's crispness cuts through the creaminess of goat cheese." },
+                { q: "Dark Chocolate pairing?", a: ["Maury", "Chablis", "Soave"], r: 0, e: "A fortified wine like Maury stands up to intense cocoa flavors." },
+                { q: "Shrimp Curry?", a: ["Off-dry Riesling", "Rioja", "Chardonnay"], r: 0, e: "Off-dry Riesling balances the heat and spices of the curry." },
+                { q: "Roasted Lamb Leg?", a: ["St-Julien", "Prosecco", "Pinot Grigio"], r: 0, e: "St-Julien (Bordeaux) has the backbone for roasted lamb." }
+            ]
+        };
+
+        // --- BASE DE DONNÉES COMPLÈTE DE L'INTRUS ---
+        const oddOneData = {
+            fr: [
+                { dish: "Plateau de fruits de mer", a: ["Muscadet", "Chablis", "Saint-Estèphe"], r: 2, e: "Le Saint-Estèphe est un rouge tannique qui dénature l'iode des coquillages." },
+                { dish: "Cassoulet Toulousain", a: ["Madiran", "Minervois", "Sauternes"], r: 2, e: "Le Sauternes est trop sucré pour un plat aussi rustique et gras que le cassoulet." },
+                { dish: "Sole Meunière", a: ["Meursault", "Cahors", "Pouilly-Fuissé"], r: 1, e: "Le Cahors est un vin noir puissant, totalement inadapté à la finesse de la sole." },
+                { dish: "Gâteau au Chocolat", a: ["Banyuls", "Maury", "Chardonnay"], r: 2, e: "Le Chardonnay sec serait acide et plat face à l'onctuosité du chocolat." },
+                { dish: "Fromage Roquefort", a: ["Sauternes", "Monbazillac", "Sancerre"], r: 2, e: "Le Sancerre blanc est trop sec et vif pour le caractère crémeux et salé du bleu." }
+            ],
+            en: [
+                { dish: "Seafood Platter", a: ["Muscadet", "Chablis", "Saint-Estephe"], r: 2, e: "Saint-Estephe is a tannic red that clashes with delicate seafood." },
+                { dish: "Cassoulet", a: ["Madiran", "Corbières", "Sauternes"], r: 2, e: "Sauternes is far too sweet for this hearty, savory bean stew." },
+                { dish: "Sole Meunière", a: ["Meursault", "Malbec", "Chardonnay"], r: 1, e: "Malbec is too bold and tannic for such a subtle fish dish." },
+                { dish: "Chocolate Cake", a: ["Porto", "Maury", "Riesling"], r: 2, e: "Dry Riesling doesn't have the sweetness to survive the sugar in the cake." },
+                { dish: "Roquefort Cheese", a: ["Sauternes", "Porto", "Sauvignon Blanc"], r: 2, e: "Dry Sauvignon Blanc is too acidic for the intense blue cheese profile." }
             ]
         };
 
         const allPairs = [
             { d: "Huîtres", w: "Muscadet", id: 1 }, { d: "Agneau", w: "Pauillac", id: 2 },
             { d: "Saumon", w: "Chardonnay", id: 3 }, { d: "Roquefort", w: "Sauternes", id: 4 },
-            { d: "Comté", w: "Vin Jaune", id: 5 }, { d: "Chèvre", w: "Sancerre", id: 6 },
-            { d: "Chocolat", w: "Banyuls", id: 7 }, { d: "Citron", w: "Jurançon", id: 8 },
-            { d: "Canard", w: "Cahors", id: 9 }, { d: "Scampis", w: "Riesling", id: 10 },
-            { d: "Charcuterie", w: "Beaujolais", id: 11 }, { d: "Veau", w: "Pinot Noir", id: 12 }
+            { d: "Comté", w: "Vin Jaune", id: 5 }, { d: "Chèvre", w: "Sancerre", id: 6 }
         ];
 
-        // DONNÉES JEU L'INTRUS
-        const oddOneData = [
-            { dish: "Plateau de fruits de mer", options: ["Muscadet", "Chablis", "Saint-Estèphe"], intruder: 2 },
-            { dish: "Cassoulet Toulousain", options: ["Madiran", "Minervois", "Sauternes"], intruder: 2 },
-            { dish: "Sole Meunière", options: ["Meursault", "Puligny-Montrachet", "Cahors"], intruder: 2 },
-            { dish: "Gâteau au Chocolat", options: ["Banyuls", "Maury", "Chardonnay"], intruder: 2 },
-            { dish: "Fromage Roquefort", options: ["Sauternes", "Monbazillac", "Sancerre"], intruder: 2 }
-        ];
-
-        let currentQuizIdx = 0;
+        let currentGameType = '';
+        let currentIdx = 0;
+        let score = 0;
         let currentLang = 'fr';
-        let quizScore = 0;
         let flipped = [];
         let matched = 0;
         let moveCount = 0;
         let lock = false;
-        let oddIdx = 0;
 
         function showPage(pageId) {
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            const target = document.getElementById(pageId + (pageId === 'home' ? '' : '-page'));
+            const target = document.getElementById(pageId === 'home' ? 'home' : pageId + '-page');
             if(target) target.classList.add('active');
             document.getElementById('finish-modal').classList.remove('active');
             window.scrollTo(0, 0);
         }
 
-        // --- QUIZ ---
         function startQuiz(lang) {
+            currentGameType = 'quiz';
             currentLang = lang;
-            currentQuizIdx = 0;
-            quizScore = 0;
-            showPage('quiz');
-            renderQuestion();
+            currentIdx = 0;
+            score = 0;
+            showPage('game-view');
+            renderGameStep();
         }
 
-        function renderQuestion() {
-            const data = quizData[currentLang][currentQuizIdx];
-            document.getElementById('quiz-progress').innerText = `Question ${currentQuizIdx + 1} / 10`;
-            document.getElementById('quiz-question').innerText = data.q;
-            const options = document.getElementById('quiz-options');
+        function startOddOneOut(lang) {
+            currentGameType = 'odd';
+            currentLang = lang;
+            currentIdx = 0;
+            score = 0;
+            showPage('game-view');
+            renderGameStep();
+        }
+
+        function renderGameStep() {
+            const container = document.getElementById('question-container');
+            const feedback = document.getElementById('feedback-container');
+            container.classList.remove('hidden');
+            feedback.classList.add('hidden');
+
+            const dataSet = currentGameType === 'quiz' ? quizData[currentLang] : oddOneData[currentLang];
+            const data = dataSet[currentIdx];
+            
+            document.getElementById('game-progress').innerText = `${currentLang === 'fr' ? 'Étape' : 'Step'} ${currentIdx + 1} / ${dataSet.length}`;
+            document.getElementById('game-main-text').innerText = currentGameType === 'quiz' ? data.q : (currentLang === 'fr' ? "Trouvez l'intrus pour : " : "Find the intruder for: ") + data.dish;
+            
+            const options = document.getElementById('game-options');
             options.innerHTML = '';
             data.a.forEach((opt, idx) => {
                 const btn = document.createElement('button');
                 btn.className = "option-btn";
                 btn.innerText = opt;
-                btn.onclick = () => selectOption(idx);
+                btn.onclick = () => handleAnswer(idx);
                 options.appendChild(btn);
             });
         }
 
-        function selectOption(idx) {
-            if (idx === quizData[currentLang][currentQuizIdx].r) quizScore++;
-            currentQuizIdx++;
-            if (currentQuizIdx < 10) renderQuestion();
-            else finishGame("Fin de l'épreuve", `Score : ${quizScore} / 10.`);
+        function handleAnswer(idx) {
+            const dataSet = currentGameType === 'quiz' ? quizData[currentLang] : oddOneData[currentLang];
+            const data = dataSet[currentIdx];
+            const isCorrect = idx === data.r;
+            if (isCorrect) score++;
+
+            document.getElementById('question-container').classList.add('hidden');
+            const fbContainer = document.getElementById('feedback-container');
+            fbContainer.classList.remove('hidden');
+            
+            const status = document.getElementById('feedback-status');
+            status.innerText = isCorrect ? (currentLang === 'fr' ? "Bien joué !" : "Well done!") : (currentLang === 'fr' ? "Erreur" : "Wrong");
+            status.style.background = isCorrect ? "#4A6E4E" : "#7A2E2E";
+            
+            document.getElementById('explanation-text').innerText = data.e;
+            
+            document.getElementById('btn-next').innerText = (currentIdx === dataSet.length - 1) ? (currentLang === 'fr' ? "Terminer" : "Finish") : (currentLang === 'fr' ? "Suivant →" : "Next →");
+            
+            document.getElementById('btn-next').onclick = () => {
+                currentIdx++;
+                if (currentIdx < dataSet.length) renderGameStep();
+                else finishGame(currentLang === 'fr' ? "Défi relevé" : "Challenge complete", `Score : ${score} / ${dataSet.length}`);
+            };
         }
 
-        // --- MEMORY ---
         function startMemory(difficulty) {
             moveCount = 0; matched = 0; flipped = []; lock = false;
             document.getElementById('moves').innerText = "0";
             document.getElementById('matches').innerText = "0";
-            const numPairs = difficulty === 'easy' ? 6 : 12;
+            const numPairs = difficulty === 'easy' ? 4 : 6;
             const selected = allPairs.slice(0, numPairs);
             let deck = [];
             selected.forEach(p => {
@@ -254,13 +294,13 @@
                 el.className = 'memory-card';
                 el.dataset.pid = card.pid;
                 el.innerHTML = `<div class="card-inner"><div class="card-back"></div><div class="card-front"><span class="card-tag">${card.type}</span><span class="card-text-inner">${card.t}</span></div></div>`;
-                el.onclick = function() { flip(this, numPairs); };
+                el.onclick = function() { flipCard(this, numPairs); };
                 grid.appendChild(el);
             });
             showPage('memory');
         }
 
-        function flip(card, total) {
+        function flipCard(card, total) {
             if (lock || card.classList.contains('flipped') || card.classList.contains('match')) return;
             card.classList.add('flipped');
             flipped.push(card);
@@ -274,7 +314,7 @@
                     document.getElementById('matches').innerText = matched;
                     flipped = [];
                     lock = false;
-                    if (matched === total) finishGame("Parfait", `${moveCount} coups.`);
+                    if (matched === total) finishGame("Excellent", `${moveCount} coups.`);
                 } else {
                     setTimeout(() => {
                         flipped.forEach(c => c.classList.remove('flipped'));
@@ -283,35 +323,6 @@
                     }, 1000);
                 }
             }
-        }
-
-        // --- L'INTRUS ---
-        function startOddOneOut() {
-            oddIdx = 0;
-            quizScore = 0;
-            showPage('odd');
-            renderOddOne();
-        }
-
-        function renderOddOne() {
-            const data = oddOneData[oddIdx];
-            document.getElementById('odd-dish').innerText = "Avec : " + data.dish;
-            const options = document.getElementById('odd-options');
-            options.innerHTML = '';
-            data.options.forEach((opt, idx) => {
-                const btn = document.createElement('button');
-                btn.className = "option-btn";
-                btn.innerText = opt;
-                btn.onclick = () => selectOdd(idx);
-                options.appendChild(btn);
-            });
-        }
-
-        function selectOdd(idx) {
-            if (idx === oddOneData[oddIdx].intruder) quizScore++;
-            oddIdx++;
-            if (oddIdx < oddOneData.length) renderOddOne();
-            else finishGame("Défi terminé", `Intrus démasqués : ${quizScore} / ${oddOneData.length}`);
         }
 
         function finishGame(title, desc) {
