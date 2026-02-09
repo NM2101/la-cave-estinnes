@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La cave d'Estinnes - Accords Mets & Vins</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- HEADER GLOBAL -->
+    <header class="main-header">
+        <h1 class="brand-title" onclick="showPage('home')">La cave d'Estinnes</h1>
+        <div class="separator"></div>
+    </header>
+
+    <!-- SECTION ACCUEIL -->
+    <main id="home" class="page active">
+        <div class="hero-text">
+            <h2>L'art de la dégustation</h2>
+            <p class="subtitle">Culture & Mémorisation</p>
+        </div>
+
+        <div class="selection-grid">
+            <!-- Jeu 1 : Quiz -->
+            <div class="menu-card">
+                <span class="card-num">01. Questionnaire</span>
+                <h3>Le Quiz du Sommelier</h3>
+                <p class="card-text">Testez vos connaissances théoriques sur 10 accords classiques. Disponible en deux langues.</p>
+                <div class="button-group">
+                    <button onclick="startQuiz('fr')" class="btn-gold">Français</button>
+                    <button onclick="startQuiz('en')" class="btn-gold">English</button>
+                </div>
+            </div>
+
+            <!-- Jeu 2 : Memory -->
+            <div class="menu-card">
+                <span class="card-num">02. Concentration</span>
+                <h3>Mémoire des Crus</h3>
+                <p class="card-text">Associez les paires visuelles de mets et de vins. Choisissez votre niveau de difficulté.</p>
+                <div class="button-group">
+                    <button onclick="startMemory('easy')" class="btn-gold">Dégustation</button>
+                    <button onclick="startMemory('hard')" class="btn-gold">Millésime</button>
+                </div>
+            </div>
+
+            <!-- Jeu 3 : L'Intrus -->
+            <div class="menu-card">
+                <span class="card-num">03. Rapidité</span>
+                <h3>L'Intrus de la Cave</h3>
+                <p class="card-text">Identifiez le vin qui n'a pas sa place dans l'accord proposé. Attention au chrono !</p>
+                <button onclick="startOddOneOut()" class="btn-gold">Lancer le défi</button>
+            </div>
+
+            <!-- Section Savoir -->
+            <div class="menu-card full-width">
+                <span class="card-num">04. Savoir</span>
+                <h3>Le Carnet d'Oenologie</h3>
+                <p class="card-text">Comprendre les caractéristiques et les accords types.</p>
+                <button onclick="showPage('education')" class="btn-gold">Ouvrir le carnet</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- SECTION ÉDUCATIVE -->
+    <section id="education-page" class="page">
+        <button class="back-arrow" onclick="showPage('home')">← Retour</button>
+        <div class="edu-container">
+            <h2 class="edu-title">Les Types de Vins</h2>
+            <div class="edu-grid">
+                <div class="edu-item">
+                    <h4>Vins Rouges</h4>
+                    <p>Issus de raisins noirs, ils tirent leur couleur des peaux. Idéal pour les viandes rouges.</p>
+                    <div class="edu-example"><strong>Accord Parfait :</strong> Côte de bœuf & Pauillac (Bordeaux)</div>
+                </div>
+                <div class="edu-item">
+                    <h4>Vins Blancs</h4>
+                    <p>Frais et acides, issus de raisins blancs ou noirs pressés sans les peaux.</p>
+                    <div class="edu-example"><strong>Accord Parfait :</strong> Fruits de mer & Muscadet sur lie</div>
+                </div>
+                <div class="edu-item">
+                    <h4>Vins Rosés</h4>
+                    <p>Une macération courte pour une robe légère. Fraîcheur et arômes de fruits rouges.</p>
+                    <div class="edu-example"><strong>Accord Parfait :</strong> Cuisine provençale & Rosé de Provence</div>
+                </div>
+                <div class="edu-item">
+                    <h4>Vins Effervescents</h4>
+                    <p>Vins à bulles utilisant souvent la méthode traditionnelle de seconde fermentation.</p>
+                    <div class="edu-example"><strong>Accord Parfait :</strong> Apéritif ou Dessert & Champagne Brut</div>
+                </div>
+                <div class="edu-item">
+                    <h4>Vins Liquoreux</h4>
+                    <p>Riches en sucres, parfaits pour les contrastes ou les douceurs de fin de repas.</p>
+                    <div class="edu-example"><strong>Accord Parfait :</strong> Foie gras ou Bleu & Sauternes</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION QUIZ -->
+    <section id="quiz-page" class="page">
+        <button class="back-arrow" onclick="showPage('home')">← Retour</button>
+        <div class="game-container">
+            <div id="quiz-progress" class="progress-label">Question 1 / 10</div>
+            <h3 id="quiz-question" class="question-text">Chargement...</h3>
+            <div id="quiz-options" class="options-stack"></div>
+        </div>
+    </section>
+
+    <!-- SECTION MEMORY -->
+    <section id="memory-page" class="page">
+        <button class="back-arrow" onclick="showPage('home')">← Retour</button>
+        <div class="status-bar">
+            <span class="status-item">Coups : <span id="moves">0</span></span>
+            <h3 class="status-title">Mémorisation</h3>
+            <span class="status-item">Paires : <span id="matches">0</span></span>
+        </div>
+        <div id="memory-grid" class="memory-grid"></div>
+    </section>
+
+    <!-- SECTION L'INTRUS -->
+    <section id="odd-page" class="page">
+        <button class="back-arrow" onclick="showPage('home')">← Retour</button>
+        <div class="game-container">
+            <div class="progress-label">Trouvez l'intrus (Mauvais accord)</div>
+            <h3 id="odd-dish" class="question-text italic">Chargement...</h3>
+            <div id="odd-options" class="options-stack"></div>
+            <div id="odd-feedback" class="mt-8 sans text-[10px] uppercase tracking-widest text-red-800"></div>
+        </div>
+    </section>
+
+    <!-- MODAL DE FIN -->
+    <div id="finish-modal" class="modal-overlay">
+        <div class="modal-content">
+            <h2 id="finish-title">Félicitations</h2>
+            <p id="finish-desc"></p>
+            <button onclick="showPage('home')" class="btn-gold-large">Retour à la cave</button>
+        </div>
+    </div>
+
+    <script>
+        // DONNÉES DU QUIZ
+        const quizData = {
+            fr: [
+                { q: "Quel vin avec des huîtres ?", a: ["Muscadet", "Saint-Emilion", "Sauternes"], r: 0 },
+                { q: "Accord pour un canard confit ?", a: ["Chablis", "Madiran", "Rosé"], r: 1 },
+                { q: "Vin idéal pour le Roquefort ?", a: ["Sauternes", "Beaujolais", "Cidre"], r: 0 },
+                { q: "Quel flacon pour un turbot ?", a: ["Meursault", "Cahors", "Cornas"], r: 0 },
+                { q: "Vin pour une tarte tatin ?", a: ["Coteaux du Layon", "Bordeaux Rouge", "Champagne Brut"], r: 0 },
+                { q: "Avec un bœuf bourguignon ?", a: ["Pommard", "Pouilly-Fuissé", "Bandol"], r: 0 },
+                { q: "Fromage de chèvre frais ?", a: ["Sancerre", "Gigondas", "Morgon"], r: 0 },
+                { q: "Chocolat noir amer ?", a: ["Banyuls", "Riesling", "Chardonnay"], r: 0 },
+                { q: "Curry de crevettes ?", a: ["Gewurztraminer", "Saint-Estèphe", "Muscadet"], r: 0 },
+                { q: "Gigot d'agneau ?", a: ["Pauillac", "Champagne", "Sancerre Blanc"], r: 0 }
+            ],
+            en: [
+                { q: "Which wine with oysters?", a: ["Muscadet", "Red Bordeaux", "Chardonnay"], r: 0 },
+                { q: "Best match for duck confit?", a: ["Pinot Noir", "Cahors", "Sauvignon Blanc"], r: 1 },
+                { q: "Ideal wine for Roquefort?", a: ["Sauternes", "Merlot", "Champagne"], r: 0 },
+                { q: "Pairing for a Dover Sole?", a: ["Meursault", "Syrah", "Malbec"], r: 0 },
+                { q: "Wine for Apple Tarte Tatin?", a: ["Sweet Chenin", "Claret", "Rose"], r: 0 },
+                { q: "Beef Bourguignon match?", a: ["Gevrey-Chambertin", "Vouvray", "Rosé"], r: 0 },
+                { q: "Fresh Goat Cheese?", a: ["Sancerre", "Hermitage", "Fleurie"], r: 0 },
+                { q: "Dark Chocolate pairing?", a: ["Maury", "Chablis", "Soave"], r: 0 },
+                { q: "Shrimp Curry?", a: ["Off-dry Riesling", "Rioja", "Chardonnay"], r: 0 },
+                { q: "Roasted Lamb Leg?", a: ["St-Julien", "Prosecco", "Pinot Grigio"], r: 0 }
+            ]
+        };
+
+        const allPairs = [
+            { d: "Huîtres", w: "Muscadet", id: 1 }, { d: "Agneau", w: "Pauillac", id: 2 },
+            { d: "Saumon", w: "Chardonnay", id: 3 }, { d: "Roquefort", w: "Sauternes", id: 4 },
+            { d: "Comté", w: "Vin Jaune", id: 5 }, { d: "Chèvre", w: "Sancerre", id: 6 },
+            { d: "Chocolat", w: "Banyuls", id: 7 }, { d: "Citron", w: "Jurançon", id: 8 },
+            { d: "Canard", w: "Cahors", id: 9 }, { d: "Scampis", w: "Riesling", id: 10 },
+            { d: "Charcuterie", w: "Beaujolais", id: 11 }, { d: "Veau", w: "Pinot Noir", id: 12 }
+        ];
+
+        // DONNÉES JEU L'INTRUS
+        const oddOneData = [
+            { dish: "Plateau de fruits de mer", options: ["Muscadet", "Chablis", "Saint-Estèphe"], intruder: 2 },
+            { dish: "Cassoulet Toulousain", options: ["Madiran", "Minervois", "Sauternes"], intruder: 2 },
+            { dish: "Sole Meunière", options: ["Meursault", "Puligny-Montrachet", "Cahors"], intruder: 2 },
+            { dish: "Gâteau au Chocolat", options: ["Banyuls", "Maury", "Chardonnay"], intruder: 2 },
+            { dish: "Fromage Roquefort", options: ["Sauternes", "Monbazillac", "Sancerre"], intruder: 2 }
+        ];
+
+        let currentQuizIdx = 0;
+        let currentLang = 'fr';
+        let quizScore = 0;
+        let flipped = [];
+        let matched = 0;
+        let moveCount = 0;
+        let lock = false;
+        let oddIdx = 0;
+
+        function showPage(pageId) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            const target = document.getElementById(pageId + (pageId === 'home' ? '' : '-page'));
+            if(target) target.classList.add('active');
+            document.getElementById('finish-modal').classList.remove('active');
+            window.scrollTo(0, 0);
+        }
+
+        // --- QUIZ ---
+        function startQuiz(lang) {
+            currentLang = lang;
+            currentQuizIdx = 0;
+            quizScore = 0;
+            showPage('quiz');
+            renderQuestion();
+        }
+
+        function renderQuestion() {
+            const data = quizData[currentLang][currentQuizIdx];
+            document.getElementById('quiz-progress').innerText = `Question ${currentQuizIdx + 1} / 10`;
+            document.getElementById('quiz-question').innerText = data.q;
+            const options = document.getElementById('quiz-options');
+            options.innerHTML = '';
+            data.a.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = "option-btn";
+                btn.innerText = opt;
+                btn.onclick = () => selectOption(idx);
+                options.appendChild(btn);
+            });
+        }
+
+        function selectOption(idx) {
+            if (idx === quizData[currentLang][currentQuizIdx].r) quizScore++;
+            currentQuizIdx++;
+            if (currentQuizIdx < 10) renderQuestion();
+            else finishGame("Fin de l'épreuve", `Score : ${quizScore} / 10.`);
+        }
+
+        // --- MEMORY ---
+        function startMemory(difficulty) {
+            moveCount = 0; matched = 0; flipped = []; lock = false;
+            document.getElementById('moves').innerText = "0";
+            document.getElementById('matches').innerText = "0";
+            const numPairs = difficulty === 'easy' ? 6 : 12;
+            const selected = allPairs.slice(0, numPairs);
+            let deck = [];
+            selected.forEach(p => {
+                deck.push({ t: p.d, type: 'METS', pid: p.id });
+                deck.push({ t: p.w, type: 'VIN', pid: p.id });
+            });
+            deck.sort(() => Math.random() - 0.5);
+            const grid = document.getElementById('memory-grid');
+            grid.innerHTML = '';
+            deck.forEach(card => {
+                const el = document.createElement('div');
+                el.className = 'memory-card';
+                el.dataset.pid = card.pid;
+                el.innerHTML = `<div class="card-inner"><div class="card-back"></div><div class="card-front"><span class="card-tag">${card.type}</span><span class="card-text-inner">${card.t}</span></div></div>`;
+                el.onclick = function() { flip(this, numPairs); };
+                grid.appendChild(el);
+            });
+            showPage('memory');
+        }
+
+        function flip(card, total) {
+            if (lock || card.classList.contains('flipped') || card.classList.contains('match')) return;
+            card.classList.add('flipped');
+            flipped.push(card);
+            if (flipped.length === 2) {
+                moveCount++;
+                document.getElementById('moves').innerText = moveCount;
+                lock = true;
+                if (flipped[0].dataset.pid === flipped[1].dataset.pid) {
+                    flipped.forEach(c => c.classList.add('match'));
+                    matched++;
+                    document.getElementById('matches').innerText = matched;
+                    flipped = [];
+                    lock = false;
+                    if (matched === total) finishGame("Parfait", `${moveCount} coups.`);
+                } else {
+                    setTimeout(() => {
+                        flipped.forEach(c => c.classList.remove('flipped'));
+                        flipped = [];
+                        lock = false;
+                    }, 1000);
+                }
+            }
+        }
+
+        // --- L'INTRUS ---
+        function startOddOneOut() {
+            oddIdx = 0;
+            quizScore = 0;
+            showPage('odd');
+            renderOddOne();
+        }
+
+        function renderOddOne() {
+            const data = oddOneData[oddIdx];
+            document.getElementById('odd-dish').innerText = "Avec : " + data.dish;
+            const options = document.getElementById('odd-options');
+            options.innerHTML = '';
+            data.options.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = "option-btn";
+                btn.innerText = opt;
+                btn.onclick = () => selectOdd(idx);
+                options.appendChild(btn);
+            });
+        }
+
+        function selectOdd(idx) {
+            if (idx === oddOneData[oddIdx].intruder) quizScore++;
+            oddIdx++;
+            if (oddIdx < oddOneData.length) renderOddOne();
+            else finishGame("Défi terminé", `Intrus démasqués : ${quizScore} / ${oddOneData.length}`);
+        }
+
+        function finishGame(title, desc) {
+            document.getElementById('finish-title').innerText = title;
+            document.getElementById('finish-desc').innerText = desc;
+            document.getElementById('finish-modal').classList.add('active');
+        }
+    </script>
+</body>
+</html>

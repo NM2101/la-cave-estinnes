@@ -1,0 +1,412 @@
+/* CHARTE GRAPHIQUE - LA CAVE D'ESTINNES */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;0,600;1,400&family=Montserrat:wght@200;400&display=swap');
+
+:root {
+    --wine: #4A0E0E;
+    --paper: #FDFCF8;
+    --gold: #C5A059;
+    --text-dark: #1A1A1A;
+    --border-light: #E5E1D8;
+}
+
+body {
+    background-color: var(--paper);
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--text-dark);
+    margin: 0;
+    overflow-x: hidden;
+}
+
+.sans { font-family: 'Montserrat', sans-serif; }
+
+/* HEADER */
+.main-header {
+    padding: 2rem 0;
+    text-align: center;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.brand-title {
+    font-weight: 300;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    font-size: 1.8rem;
+    cursor: pointer;
+    margin: 0;
+}
+
+.separator {
+    width: 2rem;
+    height: 1px;
+    background: var(--wine);
+    margin: 0.5rem auto 0;
+}
+
+/* NAVIGATION DES PAGES */
+.page {
+    display: none;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem;
+    position: relative;
+    animation: fadeIn 0.8s ease forwards;
+}
+
+.page.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* BOUTON RETOUR */
+.back-arrow {
+    position: absolute;
+    top: 1rem;
+    left: 1.5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #999;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s;
+    z-index: 10;
+}
+
+.back-arrow:hover {
+    color: var(--wine);
+}
+
+/* ACCUEIL */
+.hero-text {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.hero-text h2 {
+    font-size: 3rem;
+    font-style: italic;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.4em;
+    color: #999;
+}
+
+.selection-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+}
+
+.menu-card {
+    background: white;
+    border: 1px solid var(--border-light);
+    padding: 2.5rem;
+    text-align: center;
+    transition: all 0.5s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.menu-card.full-width {
+    grid-column: 1 / -1;
+}
+
+.menu-card:hover {
+    border-color: var(--wine);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(74, 14, 14, 0.05);
+}
+
+.card-num {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #BBB;
+    margin-bottom: 1.5rem;
+}
+
+.menu-card h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.card-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.85rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+/* BOUTONS */
+.button-group {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-gold {
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    padding: 0.6rem 1.5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    cursor: pointer;
+    transition: all 0.3s;
+    align-self: center;
+}
+
+.btn-gold:hover {
+    background: var(--gold);
+    color: white;
+}
+
+.btn-gold-large {
+    background: var(--gold);
+    color: white;
+    border: none;
+    padding: 1rem 3rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    cursor: pointer;
+    margin-top: 2rem;
+}
+
+/* SECTION ÉDUCATION */
+.edu-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.edu-title {
+    font-size: 2.5rem;
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 3rem;
+}
+
+.edu-grid {
+    display: grid;
+    gap: 3rem;
+}
+
+.edu-item {
+    border-left: 1px solid var(--gold);
+    padding-left: 1.5rem;
+}
+
+.edu-item h4 {
+    font-size: 1.6rem;
+    margin: 0 0 0.8rem 0;
+    color: var(--wine);
+}
+
+.edu-item p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 0.5rem;
+}
+
+.edu-example {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    color: var(--wine);
+    font-style: italic;
+    background: #fdf5e6;
+    padding: 0.5rem 1rem;
+    display: inline-block;
+}
+
+/* QUIZ & COMMON GAME STYLES */
+.game-container {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.progress-label {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #AAA;
+    margin-bottom: 2rem;
+}
+
+.question-text {
+    font-size: 2.5rem;
+    font-style: italic;
+    margin-bottom: 3rem;
+}
+
+.options-stack {
+    display: grid;
+    gap: 1rem;
+}
+
+.option-btn {
+    background: white;
+    border: 1px solid var(--border-light);
+    padding: 1.2rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.option-btn:hover {
+    border-color: var(--wine);
+    color: var(--wine);
+    background: #fffafa;
+}
+
+/* MEMORY STYLES */
+.status-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-light);
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+}
+
+.status-item {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+}
+
+.status-title {
+    font-size: 1.5rem;
+    font-style: italic;
+    margin: 0;
+}
+
+.memory-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 1rem;
+}
+
+.memory-card {
+    aspect-ratio: 2/3;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+.memory-card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 2px;
+}
+
+.card-back {
+    background-color: var(--wine);
+    border: 1px solid #330a0a;
+}
+
+.card-front {
+    background: white;
+    border: 1px solid var(--border-light);
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    text-align: center;
+}
+
+.card-tag {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.5rem;
+    text-transform: uppercase;
+    color: #AAA;
+    margin-bottom: 0.5rem;
+}
+
+.card-text-inner {
+    font-size: 1rem;
+    font-style: italic;
+    font-weight: 500;
+}
+
+/* MODAL */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(253, 252, 248, 0.98);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.7s;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.modal-content {
+    text-align: center;
+    max-width: 500px;
+    padding: 2rem;
+}
+
+.modal-content h2 {
+    font-size: 4rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+}
+
+.modal-content p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #666;
+    line-height: 1.8;
+}
